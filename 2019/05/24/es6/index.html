@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="litmango">
 <meta property="og:description" content="ES5">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-24T13:56:24.671Z">
+<meta property="og:updated_time" content="2019-05-24T14:03:13.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6的常用语法">
 <meta name="twitter:description" content="ES5">
@@ -30,7 +30,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#F08080,  #FA8072);
+      background: linear-gradient(200deg,#FDB7093,  #FA8072);
     }
   </style>
   
@@ -228,23 +228,38 @@
 <li><p>之前的做法<br>之前没有引入类与继承</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Animal(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.showName = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">var a = new Animal(<span class="string">'Tom'</span>);</span><br><span class="line">a.showName();</span><br><span class="line">var a1 = new Animal(<span class="string">'Jerry'</span>);</span><br><span class="line">a1.showName();</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>现在的做法<br>ES6标准<br><code>`</code> bash<br>class Animal{<br>  // 静态方法(静态方法只能通过类名调用，不可以使用实例对象调用)<br>  static showInfo(){</p>
-<pre><code>console.log(&apos;hi&apos;);
-</code></pre><p>  }<br>  // 构造函数<br>  constructor(name){</p>
-<pre><code>this.name = name;
-</code></pre><p>  }</p>
-<p>  showName(){</p>
-<pre><code>console.log(this.name);
-</code></pre><p>  }<br>}<br>// 类的继承extends<br>class Dog extends Animal{<br>  constructor(name,color){</p>
-<pre><code>super(name);//super用来调用父类
-this.color = color;
-</code></pre><p>  }</p>
-<p>  showColor(){</p>
-<pre><code>console.log(this.color);
-</code></pre><p>  }<br>}</p>
+<li><p>现在的做法<br>ES6标准</p>
 </li>
 </ul>
-<p>let d = new Dog(‘doudou’,’yellow’);<br>d.showName();<br>d.showColor();<br>// d.showInfo();//静态方法只能通过类名调用，不可以使用实例对象调用<br>Dog.showInfo();<br><code>`</code> </p>
+<pre><code class="bash">class Animal{
+// 静态方法(静态方法只能通过类名调用，不可以使用实例对象调用)
+static <span class="function"><span class="title">showInfo</span></span>(){
+console.log(<span class="string">'hi'</span>);
+}
+// 构造函数
+constructor(name){
+        this.name = name;
+    }
+    <span class="function"><span class="title">showName</span></span>(){
+        console.log(this.name);
+    }
+}
+// 类的继承extends
+class Dog extends Animal{
+    constructor(name,color){
+        super(name);//super用来调用父类
+        this.color = color;
+    }
+    <span class="function"><span class="title">showColor</span></span>(){
+        console.log(this.color);
+    }
+}
+<span class="built_in">let</span> d = new Dog(<span class="string">'doudou'</span>,<span class="string">'yellow'</span>);
+d.showName();
+d.showColor();
+// d.showInfo();//静态方法只能通过类名调用，不可以使用实例对象调用
+Dog.showInfo();
+</code></pre>
 
       
 
