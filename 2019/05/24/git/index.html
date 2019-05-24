@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="litmango">
 <meta property="og:description" content="git">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-24T09:06:48.821Z">
+<meta property="og:updated_time" content="2019-05-24T09:10:19.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git的使用">
 <meta name="twitter:description" content="git">
@@ -44,7 +44,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #CD5B45"></div>
+<div class="overlay" style="background: #DB7093"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -105,7 +105,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #CD5B45"></div>
+  	<div class="overlay js-overlay" style="background: #DB7093"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -194,28 +194,28 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今天学习了git（版本管理工具）的使用方法，我学习成果记录下来，方便大家一起学习。</p>
-<p>###初始化git仓库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure></p>
+<h3 id="初始化git仓库"><a href="#初始化git仓库" class="headerlink" title="初始化git仓库"></a>初始化git仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>执行命令后，当前目录中会出现一个名称为.git的文件夹</p>
-<p>###自报家门<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config--global user.name <span class="string">"yourname"</span></span><br><span class="line">$ git config--global user.email <span class="string">"youremail"</span></span><br></pre></td></tr></table></figure></p>
-<p>###将代码放入仓库中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add ./文件名 </span><br><span class="line">$ git commit -m <span class="string">"说明"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="自报家门"><a href="#自报家门" class="headerlink" title="自报家门"></a>自报家门</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config--global user.name <span class="string">"yourname"</span></span><br><span class="line">$ git config--global user.email <span class="string">"youremail"</span></span><br></pre></td></tr></table></figure>
+<h3 id="将代码放入仓库中"><a href="#将代码放入仓库中" class="headerlink" title="将代码放入仓库中"></a>将代码放入仓库中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add ./文件名 </span><br><span class="line">$ git commit -m <span class="string">"说明"</span></span><br></pre></td></tr></table></figure>
 <p>两行代码输入后，文件放入仓库中。我们可以查看提交状态</p>
-<p>###查看状态<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git staus</span><br></pre></td></tr></table></figure></p>
+<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git staus</span><br></pre></td></tr></table></figure>
 <p>如果输出是绿色的“modified：你提交的文件名”，说明已经放入，如果是红色提示语，则说明改动后的文件没有放入。</p>
-<p>###查看日志<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 <p>也可以一条记录浓缩到一行显示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --oneline</span><br></pre></td></tr></table></figure></p>
-<p>###回退到指定版本<br>这是博主认为git最方便的地方了，可以回退到我们提交的任何版本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard Head~0</span><br></pre></td></tr></table></figure></p>
+<h3 id="回退到指定版本"><a href="#回退到指定版本" class="headerlink" title="回退到指定版本"></a>回退到指定版本</h3><p>这是博主认为git最方便的地方了，可以回退到我们提交的任何版本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard Head~0</span><br></pre></td></tr></table></figure></p>
 <p>Head后的数字代表了回退到上几次的提交版本，0代表上次。<br>还可以指定版本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard Head[版本号]</span><br></pre></td></tr></table></figure></p>
 <p>版本号可以通过git reflog 进行查询</p>
-<p>###分支<br>默认有一个主分支，master，我们可以创建新的分支</p>
-<p>####创建分支，示例中创建的是分支dev<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch dev</span><br></pre></td></tr></table></figure></p>
-<p>####切换分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure></p>
+<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>默认有一个主分支，master，我们可以创建新的分支</p>
+<h4 id="创建分支，示例中创建的是分支dev"><a href="#创建分支，示例中创建的是分支dev" class="headerlink" title="创建分支，示例中创建的是分支dev"></a>创建分支，示例中创建的是分支dev</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch dev</span><br></pre></td></tr></table></figure>
+<h4 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
 <p>可以通过git branch查看现在有多少条分支</p>
-<p>####合并分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev</span><br></pre></td></tr></table></figure></p>
+<h4 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev</span><br></pre></td></tr></table></figure>
 <p>进行这一行命令时，当前分支要切换到另一条分支上。如果合并失败，需要手动处理，在提交申请<br>如何实现两台机器的合作呢？我们可以通过<a href="http://github.com这个网址进行传送，这个网址提供了git上传代码的功能" target="_blank" rel="noopener">http://github.com这个网址进行传送，这个网址提供了git上传代码的功能</a></p>
-<p>###提交到github上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push [github仓库地址] master</span><br></pre></td></tr></table></figure></p>
+<h3 id="提交到github上"><a href="#提交到github上" class="headerlink" title="提交到github上"></a>提交到github上</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push [github仓库地址] master</span><br></pre></td></tr></table></figure>
 <p>做这一步之前需要注册一个github账号，并且建立一个仓库，拿到仓库的网址</p>
-<p>###拿到github上的项目文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull [github仓库地址] master</span><br></pre></td></tr></table></figure></p>
+<h3 id="拿到github上的项目文件"><a href="#拿到github上的项目文件" class="headerlink" title="拿到github上的项目文件"></a>拿到github上的项目文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull [github仓库地址] master</span><br></pre></td></tr></table></figure>
 <p>需要注意的是，在团队合作共同开发时，需要先pull再push，得到最新的代码，会自动合并到本地代码，然后进行push。</p>
 
       
