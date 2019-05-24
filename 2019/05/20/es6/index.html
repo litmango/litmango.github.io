@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | litmango</title>
+  <title>ES6的常用语法 | litmango</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="litmango">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="ES5">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6的常用语法">
+<meta property="og:url" content="http://yoursite.com/2019/05/20/es6/index.html">
 <meta property="og:site_name" content="litmango">
+<meta property="og:description" content="ES5">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-24T13:38:28.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="litmango">
+<meta name="twitter:title" content="ES6的常用语法">
+<meta name="twitter:description" content="ES5">
   
     <link rel="alternative" href="/atom.xml" title="litmango" type="application/atom+xml">
   
@@ -168,101 +173,125 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-es6" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/24/git/" class="archive-article-date">
-  	<time datetime="2019-05-24T08:30:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/24/git/">git的使用</a>
+    <h1 class="article-title" itemprop="name">
+      ES6的常用语法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">通信</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/22/hello-world/" class="archive-article-date">
-  	<time datetime="2019-05-22T13:44:27.349Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/20/es6/" class="archive-article-date">
+        
+        <a href="/2019/05/20/es6/" class="archive-article-date">
   	<time datetime="2019-05-20T09:21:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/20/es6/">ES6的常用语法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ES6是JavaScript的2015版本，添加了很多语法糖，大大简化了前端开发的工作量，我们开始学习吧。</p>
+<h3 id="声明变量，let，const"><a href="#声明变量，let，const" class="headerlink" title="声明变量，let，const"></a>声明变量，let，const</h3><ul>
+<li>let声明的变量不存在与解析<br>在var中可以先使用后声明，但是let不可以<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">consloe.log(i);</span><br><span class="line"><span class="built_in">let</span> i=123;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上代码会报错</p>
+<ul>
+<li><p>let声明的变量不允许重复</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> flag=456</span><br><span class="line"><span class="built_in">let</span> flag=123;</span><br><span class="line">consloe.log(flag);//报错</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>块级作用域<br>let不可以在作用外使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line"><span class="built_in">let</span> flag=123;	</span><br><span class="line">&#125;</span><br><span class="line">consloe.log(flag);//报错</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>const不可以重复赋值，声明必须初始化</p>
+<h3 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h3></li>
+<li><p>数组的解构赋值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> [a,b,c]=[1,2,3];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的解构赋值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> &#123;a,b&#125;=&#123;a:<span class="string">'hello'</span>,b:<span class="string">'nihao'</span>&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>需要注意的是，如果对象给出了对象属性别名，调用时只能调用别名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> &#123;a：foo,b&#125;=&#123;a:<span class="string">'hello'</span>,b:<span class="string">'nihao'</span>&#125;;</span><br><span class="line">console.log(a,b)//报错</span><br><span class="line">console.log(foo,b)//hello,nihao</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字符串的解构赋值<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> [a,b,c,d,e]=<span class="string">"hello"</span>;</span><br><span class="line">console.log(a,b,c,d,e)//h e l l o</span><br><span class="line"><span class="built_in">let</span>&#123;length&#125;=<span class="string">"hello"</span></span><br><span class="line">console.log(length)//5，以对象的方式得到字符串长度</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="字符串的相关拓展"><a href="#字符串的相关拓展" class="headerlink" title="字符串的相关拓展"></a>字符串的相关拓展</h3><ul>
+<li>includes（）判断字符串中是否包含指定字符返回true或者false<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">'hello world'</span>.includes（<span class="string">'world'</span>）)//<span class="literal">true</span></span><br><span class="line">``` </span><br><span class="line">- startsWith(),endsWith()通常用来判断路径和文件类型</span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">let</span> url=<span class="string">'admin/index.php'</span></span><br><span class="line">console.log(url.startsWith(<span class="string">'admin'</span>))//<span class="literal">true</span></span><br><span class="line">console.log(url.endsWith(<span class="string">'php'</span>))//<span class="literal">true</span></span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 模板字符串（反引号）</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">let</span> obj=&#123;</span><br><span class="line">	name:<span class="string">'list'</span>,</span><br><span class="line">	age:<span class="string">'12'</span>,</span><br><span class="line">	gender:<span class="string">'male'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> tp=`</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">         &lt;span&gt;<span class="variable">$&#123;obj.name&#125;</span>&lt;/span&gt;</span><br><span class="line">         &lt;span&gt;<span class="variable">$&#123;obj.age&#125;</span>&lt;/span&gt;</span><br><span class="line">         &lt;span&gt;<span class="variable">$&#123;obj.gender&#125;</span>&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    `</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="函数扩展"><a href="#函数扩展" class="headerlink" title="函数扩展"></a>函数扩展</h3><ul>
+<li><p>默认函数值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> foo(param=<span class="string">'hello'</span>)&#123;</span><br><span class="line">console.log(param)//实现函数参数拥有默认值	</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">- 参数解构赋值</span><br><span class="line">``` bash</span><br><span class="line"><span class="keyword">function</span> foo(&#123;name=<span class="string">'list'</span>,age=13&#125;=&#123;&#125;)&#123;</span><br><span class="line">console.log(name,age);//list,13	</span><br><span class="line">&#125;</span><br><span class="line">foo(&#123;name=<span class="string">'zhangsan'</span>,age=15&#125;);//zhangsan,15</span><br><span class="line">``` </span><br><span class="line">- rest剩余函数</span><br><span class="line">``` bash</span><br><span class="line"><span class="keyword">function</span> foo(a,...param)&#123;</span><br><span class="line">console.log(a,param);</span><br><span class="line">&#125;</span><br><span class="line">foo(1,2,3,4,5);//1,2,3,4,5</span><br><span class="line">``` </span><br><span class="line">- 扩展运算符</span><br><span class="line">``` bash</span><br><span class="line"><span class="keyword">function</span> foo(a,b,c)&#123;</span><br><span class="line">console.log(a+b+c);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> arr=[1,2,3];</span><br><span class="line">foo(...arr);</span><br><span class="line">``` </span><br><span class="line">还可以合并数组！</span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">let</span> arr1=[1,2,3];</span><br><span class="line"><span class="built_in">let</span> arr2=[4,5,6];</span><br><span class="line"><span class="built_in">let</span> arr3=[...arr1,...arr2];</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 箭头函数</span></span><br><span class="line">省略了<span class="keyword">function</span>和<span class="built_in">return</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">let</span> foo=(a,b)=&gt;console.log(a+b);</span><br><span class="line">foo(1,2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>箭头函数中的this取决于函数定义，而不是调用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">    // 使用call调用foo时，这里的this其实就是call的第一个参数</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">        console.log(this.num);</span><br><span class="line">    &#125;,100);</span><br><span class="line">&#125;</span><br><span class="line">foo.call(&#123;num:1&#125;);</span><br><span class="line">``` </span><br><span class="line">- 不可以new</span><br><span class="line">``` bash</span><br><span class="line"> <span class="built_in">let</span> foo = () =&gt; &#123; this.num = 123;&#125;;</span><br><span class="line"> new foo();//报错</span><br><span class="line"> ``` </span><br><span class="line">- 不可以使用arguments获取参数列表可以使用rest参数代替</span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">let</span> foo = (a,b) =&gt; &#123;</span><br><span class="line">    // console.log(a,b);</span><br><span class="line">    console.log(arguments);//这种方式获取不到实参列表</span><br><span class="line">&#125;</span><br><span class="line">foo(123,456);</span><br><span class="line"><span class="built_in">let</span> foo = (...param) =&gt; &#123;</span><br><span class="line">    console.log(param);</span><br><span class="line">&#125;</span><br><span class="line">foo(123,456);//这种方式才行</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="类与继承"><a href="#类与继承" class="headerlink" title="类与继承"></a>类与继承</h3><ul>
+<li>之前的做法<pre><code class="bash"><span class="keyword">function</span> Animal(name){
+  this.name = name;
+}
+Animal.prototype.showName = <span class="function"><span class="title">function</span></span>(){
+  console.log(this.name);
+}
+var a = new Animal(<span class="string">'Tom'</span>);
+a.showName();
+var a1 = new Animal(<span class="string">'Jerry'</span>);
+a1.showName();
+</code></pre>
+</li>
+<li><p>现在的做法<br><code>`</code> bash<br>class Animal{<br>  // 静态方法(静态方法只能通过类名调用，不可以使用实例对象调用)<br>  static showInfo(){</p>
+<pre><code>console.log(&apos;hi&apos;);
+</code></pre><p>  }<br>  // 构造函数<br>  constructor(name){</p>
+<pre><code>this.name = name;
+</code></pre><p>  }</p>
+<p>  showName(){</p>
+<pre><code>console.log(this.name);
+</code></pre><p>  }<br>}<br>// 类的继承extends<br>class Dog extends Animal{<br>  constructor(name,color){</p>
+<pre><code>super(name);//super用来调用父类
+this.color = color;
+</code></pre><p>  }</p>
+<p>  showColor(){</p>
+<pre><code>console.log(this.color);
+</code></pre><p>  }<br>}</p>
+</li>
+</ul>
+<p>let d = new Dog(‘doudou’,’yellow’);<br>d.showName();<br>d.showColor();<br>// d.showInfo();//静态方法只能通过类名调用，不可以使用实例对象调用<br>Dog.showInfo();<br><code>`</code> </p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -274,19 +303,110 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/20/es6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/05/22/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -309,8 +429,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
