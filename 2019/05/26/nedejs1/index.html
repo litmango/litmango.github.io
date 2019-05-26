@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | litmango</title>
+  <title>nedejs基础-Buffer | litmango</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="litmango">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="在系统环境变量中添加nodejs路径就可以直接通过命令窗口启动nodejs">
+<meta name="keywords" content="Nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nedejs基础-Buffer">
+<meta property="og:url" content="http://yoursite.com/2019/05/26/nedejs1/index.html">
 <meta property="og:site_name" content="litmango">
+<meta property="og:description" content="在系统环境变量中添加nodejs路径就可以直接通过命令窗口启动nodejs">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-26T11:58:41.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="litmango">
+<meta name="twitter:title" content="nedejs基础-Buffer">
+<meta name="twitter:description" content="在系统环境变量中添加nodejs路径就可以直接通过命令窗口启动nodejs">
   
     <link rel="alternative" href="/atom.xml" title="litmango" type="application/atom+xml">
   
@@ -168,36 +173,82 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-nedejs1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/26/nedejs1/" class="archive-article-date">
-  	<time datetime="2019-05-26T10:18:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/26/nedejs1/">nedejs基础-Buffer</a>
+    <h1 class="article-title" itemprop="name">
+      nedejs基础-Buffer
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/05/26/nedejs1/" class="archive-article-date">
+  	<time datetime="2019-05-26T10:18:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在系统环境变量中添加nodejs路径就可以直接通过命令窗口启动nodejs<br><a id="more"></a><br>下面补充一下命令窗口的常见操作</p>
+<h2 id="命令窗口的常见命令"><a href="#命令窗口的常见命令" class="headerlink" title="命令窗口的常见命令"></a>命令窗口的常见命令</h2><ul>
+<li>创建目录<br>md 目录</li>
+<li>删除内部没有文档的目录<br>rd 目录</li>
+<li>创建文件<br>echo on a.txt</li>
+<li>删除文件<br>rm 文件名</li>
+<li>查看文件内容<br>cat 文件名</li>
+<li>写入内容<br>cat&gt;文件名（写入后原本内容被覆盖）<br>cat&gt;&gt;文件名（写入后原本内容不被覆盖）<br>ctrl+c退出</li>
+</ul>
+<p>echo 123 &gt;a.txt（在a.txt中写入123，之前的内容被123覆盖）<br>echo 123 &gt;&gt;a.txt（在a.txt中补充写入123，之前的内容不被123覆盖）</p>
+<h2 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h2><p>传统的费模块化开发会造成：①命名冲突②文件依赖（必须先引入某些文件，再引入后续文件，后续文件依赖之前的文件）</p>
+<h3 id="模块化相关规则"><a href="#模块化相关规则" class="headerlink" title="模块化相关规则"></a>模块化相关规则</h3><ul>
+<li>一个js文件就是一个模块，模块内部相互独立</li>
+<li>模块文件的导出和引入<br>01.js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var sum=function(a,b)&#123;</span><br><span class="line">	return a+b;</span><br><span class="line">&#125;</span><br><span class="line">exports.sum=sum;//导出模块</span><br></pre></td></tr></table></figure>
+02.js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var module=require(&apos;./01.js&apos;);</span><br><span class="line">var ret =module.sum(12,13);</span><br><span class="line">console.log(ret);</span><br></pre></td></tr></table></figure>
+也可以直接在01.js中导出方法<br>01.js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var sum=function(a,b)&#123;</span><br><span class="line">	return a+b;</span><br><span class="line">&#125;</span><br><span class="line">module.exports=sum;//导出模块</span><br></pre></td></tr></table></figure>
+02.js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var module=require(&apos;./01.js&apos;);</span><br><span class="line">var ret =module(12,13);</span><br><span class="line">console.log(ret);</span><br></pre></td></tr></table></figure>
+模块文件一般有三种格式，.jx,.json,.node,加载优先级别为.jx&gt;.json&gt;.node<h2 id="Buffer的基本操作"><a href="#Buffer的基本操作" class="headerlink" title="Buffer的基本操作"></a>Buffer的基本操作</h2>JavaScript 语言自身只有字符串数据类型，没有二进制数据类型。Buffer 类，该类用来创建一个专门存放二进制数据的缓存区。<br>一个 Buffer 类似于一个整数数组，但它对应于 V8 堆内存之外的一块原始内存。<br>Buffer对象占用的内存空间是不计算在Node.js进程内存空间限制上的，因此，我们也常常会使用Buffer来存储需要占用大量内存的数据。<br>Buffer对象是Node处理二进制数据的一个接口。它是Node原生提供的全局对象，可以直接使用，不需要require(‘buffer’)。<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(Buffer.alloc(5));//随机生成五个十六进制的字符</span><br><span class="line">const buf = Buffer.alloc(5, &apos;a&apos;);</span><br><span class="line">console.log(buf);//&lt;Buffer 61 61 61 61 61&gt;</span><br><span class="line">const buf1 = Buffer.alloc(11, &apos;aGVsbG8gd29ybGQ=&apos;, &apos;base64&apos;);//Buffer.alloc(size[, fill[, encoding]])</span><br><span class="line">console.log(buf1);//&lt;Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Buffer.from(&apos;hello&apos;));//&lt;Buffer 68,65,6c,6c,6f&gt;每个字母的十六进制</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let buf=Buffer.from([0x62,0x75,0x66,0x65,0x72]);</span><br><span class="line">console.log(buf.toString());//buffer</span><br></pre></td></tr></table></figure>
+<h3 id="功能方法"><a href="#功能方法" class="headerlink" title="功能方法"></a>功能方法</h3>Buffer.isEncoding() 判断是否支持该编码<br>Buffer.isBuffer() 判断是否为Buffer<br>Buffer.byteLength() 返回指定编码的字节长度，默认utf8<br>Buffer.concat() 将一组Buffer对象合并为一个Buffer对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let buf1=Buffer.from(&apos;tom&apos;);</span><br><span class="line">let buf1=Buffer.from(&apos;jerry&apos;);</span><br><span class="line">let buf3=Buffer.concat([buf1,buf2]);</span><br><span class="line">console.log(Buffer.byteLength(buf3));//8</span><br><span class="line">console.log(buf3.toString());//tomjerry</span><br></pre></td></tr></table></figure>
+<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3></li>
+<li>write() 向buffer对象中写入内容<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let buf=Buffer.alloc(5);//会随机生成五个十六进制的字符</span><br><span class="line">buf.write(&apos;hello&apos;,2,2);//三个参数分别是插入的字符，插入的位置，插入的字节数，插入hello，从第三个位置开始，插入两个字节--he</span><br><span class="line">console.log(buf);//&lt;Buffer 00 00 68 65 00&gt;</span><br></pre></td></tr></table></figure></li>
+<li>slice() 截取新的buffer对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let buf= Buffer.from(&apos;hello&apos;);</span><br><span class="line">let buf1=buf.slice(2,3);//两个参数表示开始位置和截取位置</span><br><span class="line">console.log(buf1.toString())// l</span><br></pre></td></tr></table></figure></li>
+<li>toString() 把buf对象转成字符串</li>
+<li>toJson() 把buf对象转成json形式的字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const buf = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5]);//nodejs官网的例子</span><br><span class="line">const json = JSON.stringify(buf);</span><br><span class="line">console.log(json);//&lt;&quot;type&quot;:&quot;Buffer&quot;,&quot;data&quot;:[1,2,3,4,5]&gt;</span><br><span class="line">const copy = JSON.parse(json, (key, value) =&gt; &#123;</span><br><span class="line">  return value &amp;&amp; value.type === &apos;Buffer&apos; ?Buffer.from(value.data) :value;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(copy);// &lt;Buffer 01 02 03 04 05&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -209,122 +260,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/26/nedejs1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/24/es6/" class="archive-article-date">
-  	<time datetime="2019-05-24T09:21:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/24/es6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6的常用语法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/24/es6/">ES6的常用语法</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/24/git/" class="archive-article-date">
-  	<time datetime="2019-05-24T08:30:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/24/git/">git的使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">通信</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/22/hello-world/" class="archive-article-date">
-  	<time datetime="2019-05-22T13:44:27.349Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/22/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -347,8 +382,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="litmango">
 <meta property="og:description" content="ES5">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-24T14:12:34.463Z">
+<meta property="og:updated_time" content="2019-05-26T07:17:03.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6的常用语法">
 <meta name="twitter:description" content="ES5">
@@ -195,16 +195,16 @@
       
         <p>ES6是JavaScript的2015版本，添加了很多语法糖，大大简化了前端开发的工作量，我们开始学习吧。</p>
 <h3 id="声明变量，let，const"><a href="#声明变量，let，const" class="headerlink" title="声明变量，let，const"></a>声明变量，let，const</h3><ul>
-<li>let声明的变量不存在与解析<br>在var中可以先使用后声明，但是let不可以<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">consloe.log(i);</span><br><span class="line"><span class="built_in">let</span> i=123;</span><br></pre></td></tr></table></figure>
+<li>let声明的变量不存在与解析<br>在var中可以先使用后声明，但是let不可以<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(i);</span><br><span class="line"><span class="built_in">let</span> i=123;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>以上代码会报错<br><a id="more"></a></p>
 <ul>
 <li><p>let声明的变量不允许重复</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> flag=456</span><br><span class="line"><span class="built_in">let</span> flag=123;</span><br><span class="line">consloe.log(flag);//报错</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> flag=456</span><br><span class="line"><span class="built_in">let</span> flag=123;</span><br><span class="line">console.log(flag);//报错</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>块级作用域<br>let不可以在作用外使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line"><span class="built_in">let</span> flag=123;	</span><br><span class="line">&#125;</span><br><span class="line">consloe.log(flag);//报错</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line"><span class="built_in">let</span> flag=123;	</span><br><span class="line">&#125;</span><br><span class="line">console.log(flag);//报错</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>const不可以重复赋值，声明必须初始化</p>
 <h3 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h3></li>
@@ -239,7 +239,7 @@
 </ul>
 <h3 id="类与继承"><a href="#类与继承" class="headerlink" title="类与继承"></a>类与继承</h3><ul>
 <li>之前的做法<br>之前没有引入类与继承<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Animal(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.showName = function()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">var a = new Animal(&apos;Tom&apos;);</span><br><span class="line">a.showName();</span><br><span class="line">var a1 = new Animal(&apos;Jerry&apos;);</span><br><span class="line">a1.showName();</span><br></pre></td></tr></table></figure></li>
-<li>现在的做法<br>ES6标准<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Animal&#123;</span><br><span class="line">// 静态方法(静态方法只能通过类名调用，不可以使用实例对象调用)</span><br><span class="line">static showInfo()&#123;</span><br><span class="line">console.log(&apos;hi&apos;);</span><br><span class="line">&#125;</span><br><span class="line">// 构造函数</span><br><span class="line">constructor(name)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    showName()&#123;</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 类的继承extends</span><br><span class="line">class Dog extends Animal&#123;</span><br><span class="line">    constructor(name,color)&#123;</span><br><span class="line">        super(name);//super用来调用父类</span><br><span class="line">        this.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">    showColor()&#123;</span><br><span class="line">        console.log(this.color);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let d = new Dog(&apos;doudou&apos;,&apos;yellow&apos;);</span><br><span class="line">d.showName();</span><br><span class="line">d.showColor();</span><br><span class="line">// d.showInfo();//静态方法只能通过类名调用，不可以使用实例对象调用</span><br><span class="line">Dog.showInfo();</span><br></pre></td></tr></table></figure></li>
+<li>现在的做法<br>ES6标准<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Animal&#123;</span><br><span class="line">// 静态方法(静态方法只能通过类名调用，不可以使用实例对象调用)</span><br><span class="line">    static showInfo()&#123;</span><br><span class="line">        console.log(&apos;hi&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">// 构造函数</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    showName()&#123;</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 类的继承extends</span><br><span class="line">class Dog extends Animal&#123;</span><br><span class="line">    constructor(name,color)&#123;</span><br><span class="line">        super(name);//super用来调用父类</span><br><span class="line">        this.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">    showColor()&#123;</span><br><span class="line">        console.log(this.color);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let d = new Dog(&apos;doudou&apos;,&apos;yellow&apos;);</span><br><span class="line">d.showName();</span><br><span class="line">d.showColor();</span><br><span class="line">// d.showInfo();//静态方法只能通过类名调用，不可以使用实例对象调用</span><br><span class="line">Dog.showInfo();</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -344,6 +344,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/05/26/nedejs1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          nedejs基础-Buffer
+        
+      </div>
+    </a>
   
   
     <a href="/2019/05/24/git/" id="article-nav-older" class="article-nav-link-wrap">
@@ -473,11 +482,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">通信</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nodejs</a>
               </li>
             
             <div class="clearfix"></div>
