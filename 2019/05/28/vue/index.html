@@ -17,7 +17,7 @@
 <meta property="og:description" content="Vue">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/05/28/vue/MVCandMVVM.png">
-<meta property="og:updated_time" content="2019-05-28T14:00:33.298Z">
+<meta property="og:updated_time" content="2019-05-29T02:42:26.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue的基本语法">
 <meta name="twitter:description" content="Vue">
@@ -63,6 +63,8 @@
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/tags/JavaScript/">JavaScript</a></li>
+	        
+				<li><a href="/tags/HTML+CSS/">HTML+CSS</a></li>
 	        
 				<li><a href="/tags/Nodejs/">Nodejs</a></li>
 	        
@@ -128,6 +130,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -148,13 +152,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/JavaScript/">JavaScript</a></li>
+					<li style="width: 20%"><a href="/tags/JavaScript/">JavaScript</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/Nodejs/">Nodejs</a></li>
+					<li style="width: 20%"><a href="/tags/HTML+CSS/">HTML+CSS</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/通信/">通信</a></li>
+					<li style="width: 20%"><a href="/tags/Nodejs/">Nodejs</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/通信/">通信</a></li>
 		        
 				</ul>
 			</nav>
@@ -202,7 +208,7 @@
 </li>
 </ul>
 <h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="v-cloak"><a href="#v-cloak" class="headerlink" title="v-cloak"></a>v-cloak</h3><p>上述例子中为插值表达式，在网速慢的情况下会出现的闪烁问题，v-cloak这个指令可以隐藏未编译的标签直到实例准备完毕。<br>首先设置样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"> [v-cloak] &#123;</span><br><span class="line">     display: none; </span><br><span class="line">    &#125;</span><br><span class="line"> &lt;/style&gt;</span><br><span class="line"> </span><br></pre></td></tr></table></figure><br>然后在p标签中引入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-cloak&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><p>这个指令显示效果与插值表达式一样，并且还不会出现‘’闪烁现象，但是会覆盖原本的内容，这就是为什么有了v-text，还继续保留插值表达式的原因<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-cloak&gt;++++++++  ----------&lt;/p&gt;</span><br><span class="line">&lt;p v-text=&quot;msg&quot;&gt;==================&lt;/p&gt;</span><br></pre></td></tr></table></figure><br>设置msg的值是vue，那么上述两条语句的输出内容分别是<br>++++++++ vue———-<br>vue</p>
+<h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><p>这个指令显示效果与插值表达式一样，并且还不会出现‘’闪烁现象，但是会覆盖原本的内容，这就是为什么有了v-text，还继续保留插值表达式的原因<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-cloak&gt;++++++++----------&lt;/p&gt;</span><br><span class="line">&lt;p v-text=&quot;msg&quot;&gt;==================&lt;/p&gt;</span><br></pre></td></tr></table></figure><br>设置msg的值是vue，那么上述两条语句的输出内容分别是<br>++++++++ vue———-<br>vue</p>
 <h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h3><p>这个指令是用来输出标签的，会覆盖掉原本的内容<br>举个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;&lt;/h1&gt;</span><br><span class="line">&lt;h1 v-text=&quot;msg2&quot;&gt;&lt;/h1&gt;</span><br><span class="line">&lt;h1 v-html=&quot;msg2&quot;&gt;1212112&lt;/h1&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var vm = new Vue(&#123;</span><br><span class="line">      el: &apos;#app&apos;,</span><br><span class="line">      data: &#123;</span><br><span class="line">        msg:  &apos;&lt;h1&gt;哈哈，我大，我骄傲&lt;/h1&gt;&apos;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><br>输出结果是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;哈哈，我大，我骄傲&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;哈哈，我大，我骄傲&lt;/h1&gt;</span><br></pre></td></tr></table></figure></p>
 <h1 id="哈哈，我大，我骄傲"><a href="#哈哈，我大，我骄傲" class="headerlink" title="哈哈，我大，我骄傲"></a>哈哈，我大，我骄傲</h1><h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><p>v-bind指令用于响应更新Html特性，将一个或多个attribute动态绑定到表达式。v-bind可以简写：（引号）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img v-bind:src=&quot;路径&quot;&gt;</span><br><span class="line">&lt;img :src=&quot;路径&quot;&gt;</span><br></pre></td></tr></table></figure></p>
 <h3 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h3><p>用于绑定事件，用法：v-on:事件=”函数”，可以缩写成@<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;button type=&quot;button&quot; v-on:click=&quot;show()&quot;&gt;点击显示&lt;/button&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line">        </span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;./js/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el: &apos;#app&apos;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            msg:&apos;&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            show() &#123;</span><br><span class="line">                this.msg = &apos;Vue.js&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
@@ -219,7 +225,7 @@
 <p>上述代码若点击最外面div，会输出<br>这是触发了 外面div 的点击事件 </p>
 <ul>
 <li>使用 .self 实现只有点击当前元素时候，才会触发事件处理函数<br>.self 只会阻止自己身上冒泡行为的触发，并不会真正阻止 冒泡的行为<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt; </span><br><span class="line">　　&lt;div class=&quot;outeer&quot; @click=&quot;outer&quot;&gt; </span><br><span class="line">　　　　&lt;div class=&quot;middle&quot; @click=&quot;middle&quot;&gt; </span><br><span class="line">　　　　　　&lt;button @click=&quot;inner&quot;&gt;点击&lt;/button&gt;</span><br><span class="line"> 　　　　&lt;/div&gt;</span><br><span class="line"> 　　&lt;/div&gt; </span><br><span class="line">&lt;/div&gt;</span><br><span class="line">  &lt;script src=&quot;./js/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"> let app = new Vue(&#123;</span><br><span class="line"> 　　el: &apos;#app&apos;, </span><br><span class="line">　　 data : &#123;&#125;, </span><br><span class="line">　　methods: &#123; </span><br><span class="line">　　　　inner: function () &#123;</span><br><span class="line">　　　　　　  console.log(&apos;这是触发了 inner div 的点击事件&apos;)</span><br><span class="line">　　　　&#125;, </span><br><span class="line">　　　　middle: function () &#123; </span><br><span class="line">　　　　　　 console.log(&apos;这是触发了 中间 div 的点击事件&apos;) </span><br><span class="line">　　　　&#125;, </span><br><span class="line">　　　　outer: function () &#123; </span><br><span class="line">　　　　　　 console.log(&apos;这是触发了 外面div 的点击事件&apos;)</span><br><span class="line">　　　　&#125; </span><br><span class="line">　　&#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-上述代码由于冒泡机制的处理，点击最里面的按钮，会触发中间，外部绑定的相同的单击事件，如果将<br>　设置　<div class="outeer" @click.self="outer"> ，则只有点击最外部的标签才会触发输出“这是触发了 外面div 的点击事件”的事件。</div></li>
+上述代码由于冒泡机制的处理，点击最里面的按钮，会触发中间，外部绑定的相同的单击事件，如果设置　div class=”outeer” @click.self=”outer”，则只有点击最外部的标签才会触发输出“这是触发了 外面div 的点击事件”的事件。</li>
 <li>使用 .once 只触发一次事件处理函数</li>
 </ul>
 <h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><p>实现双向绑定，用于表单元素。表单元素：input(radio text address email),selext checkbox textarea<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">   &lt;h4&gt;&lt;/h4&gt;</span><br><span class="line">   &lt;input type=&quot;text&quot; style=&quot;width:100%;&quot; v-model=&quot;msg&quot;&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">   var vm = new Vue(&#123;</span><br><span class="line">     el: &apos;#app&apos;,</span><br><span class="line">     data: &#123;</span><br><span class="line">       msg: &apos;双向绑定，大家可以通过界面改&apos;</span><br><span class="line">     &#125;,</span><br><span class="line">     methods: &#123;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br><span class="line"> &lt;/script&gt;</span><br></pre></td></tr></table></figure><br>呈现的界面是一个h4标签和一个text，text中输入文字可以改变h4的内容，实现双向绑定</p>
@@ -331,6 +337,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/06/14/layout/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          layout
+        
+      </div>
+    </a>
   
   
     <a href="/2019/05/26/nedejs1/" id="article-nav-older" class="article-nav-link-wrap">
@@ -460,11 +475,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">通信</a>
+                <a href="javascript:void(0)" class="js-tag color4">HTML+CSS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">通信</a>
               </li>
              
               <li class="article-tag-list-item">
