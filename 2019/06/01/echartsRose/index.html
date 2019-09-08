@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | litmango</title>
+  <title>echarts做简单南丁格尔饼状图 | litmango</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="litmango">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="echarts">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="echarts做简单南丁格尔饼状图">
+<meta property="og:url" content="http://yoursite.com/2019/06/01/echartsRose/index.html">
 <meta property="og:site_name" content="litmango">
+<meta property="og:description" content="echarts">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/06/01/echartsRose/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/01/echartsRose/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/01/echartsRose/3.png">
+<meta property="og:updated_time" content="2019-09-08T10:34:02.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="litmango">
+<meta name="twitter:title" content="echarts做简单南丁格尔饼状图">
+<meta name="twitter:description" content="echarts">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/01/echartsRose/1.png">
   
     <link rel="alternative" href="/atom.xml" title="litmango" type="application/atom+xml">
   
@@ -168,74 +177,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-echartsRose" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/14/layout/" class="archive-article-date">
-  	<time datetime="2019-06-14T07:11:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/14/layout/">三栏布局的实现方法</a>
+    <h1 class="article-title" itemprop="name">
+      echarts做简单南丁格尔饼状图
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HTMLCSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/01/echartsRose/" class="archive-article-date">
+        
+        <a href="/2019/06/01/echartsRose/" class="archive-article-date">
   	<time datetime="2019-06-01T10:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/01/echartsRose/">echarts做简单南丁格尔饼状图</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>echarts是一个前端可视化图表工具，非常实用和强大。ECharts 提供了丰富的自定义配置选项，并且能够从全局、系列、数据三个层级去设置数据图形的样式。</p>
+<a id="more"></a>
+<p>使用vue-cli+echarts，首先要下载echarts</p>
+<pre><code class="bash">npm i echarts --save
+</code></pre>
+<p>下载后会将echarts放入node module文件夹中，然后再mainjs中进行配置</p>
+<pre><code class="bash">import echarts from <span class="string">'echarts'</span>
+Vue.prototype.<span class="variable">$echarts</span> = echarts
+</code></pre>
+<p>在temple中做一个适量大小的容器，使用ref属性进行绑定。<br><strong>如果使用id进行绑定，则组件只能在父组件中使用一次</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div ref=&quot;mypie&quot; :style=&quot;&#123;width: &apos;400px&apos;, height: &apos;330px&apos;&#125;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure><br>然后定义一个方法，做出一个普通的饼图。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"> methods: &#123;</span><br><span class="line">    draw() &#123;</span><br><span class="line">        let mypie = this.$echarts.init(this.$refs.mypie);</span><br><span class="line">        mypie.setOption(&#123;</span><br><span class="line">            series: [&#123;</span><br><span class="line">                name: &apos;访问来源&apos;,</span><br><span class="line">                type: &apos;pie&apos;,</span><br><span class="line">                roseType: &apos;angle&apos;,</span><br><span class="line">                radius: &apos;55%&apos;,</span><br><span class="line">                data: [&#123;</span><br><span class="line">                    value: 235,</span><br><span class="line">                    name: &apos;视频广告&apos;,</span><br><span class="line"></span><br><span class="line">                    itemStyle: &#123;</span><br><span class="line">                        color: &apos;#F78181&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    value: 274,</span><br><span class="line">                    name: &apos;联盟广告&apos;,</span><br><span class="line">                    itemStyle: &#123;</span><br><span class="line">                        color: &apos;#FA5858&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    value: 310,</span><br><span class="line">                    name: &apos;邮件营销&apos;,</span><br><span class="line">                    itemStyle: &#123;</span><br><span class="line">                        color: &apos;#FE2E2E&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    value: 335,</span><br><span class="line">                    name: &apos;直接访问&apos;,</span><br><span class="line">                    itemStyle: &#123;</span><br><span class="line">                        color: &apos;#FF0000&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    value: 400,</span><br><span class="line">                    name: &apos;搜索引擎&apos;,</span><br><span class="line">                    itemStyle: &#123;</span><br><span class="line">                        color: &apos;#DF0101&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;]</span><br><span class="line">            &#125;]</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>效果为<img src="/2019/06/01/echartsRose/1.png" alt="1"><br>设置<br><code>roseType: &#39;angle&#39;</code><br>将普通的饼图设置为南丁格尔图，然后添加阴影<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">itemStyle: &#123;</span><br><span class="line">    // 阴影的大小</span><br><span class="line">    shadowBlur: 200,</span><br><span class="line">    // 阴影水平方向上的偏移</span><br><span class="line">    shadowOffsetX: 0,</span><br><span class="line">    // 阴影垂直方向上的偏移</span><br><span class="line">    shadowOffsetY: 0,</span><br><span class="line">    // 阴影颜色</span><br><span class="line">    shadowColor: &apos;rgba(0, 0, 0, 0.5)&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>如图所示效果为<img src="/2019/06/01/echartsRose/2.png" alt="2"><br>添加标题，设置标题颜色，文本颜色以及线的颜色。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">title:&#123;</span><br><span class="line">                        text: &apos;南丁格尔玫瑰&apos;,</span><br><span class="line">                        // shadowColor:&apos;green&apos;,</span><br><span class="line">                        // shadowOffsetX:100,</span><br><span class="line">                        padding: [</span><br><span class="line">                                 0,  // 上</span><br><span class="line">                                 0, // 右</span><br><span class="line">                                 0,  // 下</span><br><span class="line">                                 150, // 左</span><br><span class="line">                                ],</span><br><span class="line">                        textAlign: &apos;left&apos;,</span><br><span class="line">                        color:&apos;red&apos;,</span><br><span class="line">                         textStyle: &#123;color: &apos;red&apos; &#125;</span><br><span class="line">                    &#125;，</span><br><span class="line">                    textStyle: &#123;color: &apos;rgba(255, 255, 255, 0.3)&apos; &#125;,</span><br><span class="line">                      labelLine: &#123;</span><br><span class="line">                           lineStyle: &#123;</span><br><span class="line">                               color: &apos;rgba(255, 255, 255, 0.3)&apos;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br></pre></td></tr></table></figure><br>设置图例样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">legend:&#123;</span><br><span class="line">        type:&apos;scroll&apos;,</span><br><span class="line">        data: [&apos;视频广告&apos;, &apos;联盟广告&apos;, &apos;邮件营销&apos;,&apos;直接访问&apos;,&apos;搜索引擎&apos;],</span><br><span class="line">        itemGap: 20,</span><br><span class="line">        bottom:0,</span><br><span class="line">        width:300,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><br>添加视觉映射<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> visualMap: &#123;</span><br><span class="line">    // 不显示 visualMap 组件，只用于明暗度的映射</span><br><span class="line">    show: true,</span><br><span class="line">    // 映射的最小值为 80</span><br><span class="line">    min: 80,</span><br><span class="line">    // 映射的最大值为 600</span><br><span class="line">    max: 600,</span><br><span class="line">    inRange: &#123;</span><br><span class="line">        // 明暗度的范围是 0 到 1</span><br><span class="line">        colorLightness: [0, 1]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>效果如图<img src="/2019/06/01/echartsRose/3.png" alt="3"><br>然后将组建放入父组件中<br><code>import 组件名 from &#39;路径&#39;</code><br>在components中写入组件名，然后再<temple>中直接调用即可。</temple></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -247,198 +247,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/01/echartsRose/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/28/vue/" class="archive-article-date">
-  	<time datetime="2019-05-28T10:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/06/14/layout/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          三栏布局的实现方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/28/vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue的基本语法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/28/vue/">vue的基本语法</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/26/nedejs1/" class="archive-article-date">
-  	<time datetime="2019-05-26T10:18:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/26/nedejs1/">nedejs基础-Buffer</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Nodejs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/24/es6/" class="archive-article-date">
-  	<time datetime="2019-05-24T09:21:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/24/es6/">ES6的常用语法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/24/git/" class="archive-article-date">
-  	<time datetime="2019-05-24T08:30:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/24/git/">git的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">通信</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/22/hello-world/" class="archive-article-date">
-  	<time datetime="2019-05-22T13:44:27.349Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -461,8 +378,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
